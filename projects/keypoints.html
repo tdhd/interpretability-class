@@ -19,6 +19,7 @@
     var scene = new THREE.Scene();
     var camera = new THREE.PerspectiveCamera( 75, window.innerWidth / window.innerHeight, 0.1, 1000 );
     var controls = new THREE.OrbitControls( camera );
+    var axesHelper = new THREE.AxesHelper( 5 ); scene.add( axesHelper );
 
     var renderer = new THREE.WebGLRenderer();
     renderer.setSize( window.innerWidth, window.innerHeight );
@@ -30,6 +31,7 @@
     keypoints.push(keypoint(1, 0, 0, 0xf0ff00, scale=1.5));
     keypoints[keypoints.length-1].rotation.x = 90;
     keypoints.push(keypoint(0, 1, 0, 0xff0000, scale=3));
+
     keypoints.push(keypoint(-1.5, 2, 0, 0x00ff00));
     keypoints[keypoints.length-1].rotation.z = -90;
     keypoints.push(keypoint(1.5, 2, 0, 0x00ff00));
