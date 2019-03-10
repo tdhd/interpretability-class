@@ -1,0 +1,52 @@
+<!doctype html>
+<html>
+<head>
+    <title>WebGL Demo</title>
+</head>
+<body>
+    <div id="container"></div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/102/three.min.js"></script>
+    <script>
+    function keypoint(x, y, z) {
+      var geometry = new THREE.BoxGeometry( 0.1, 0.1, 0.1 );
+      var material = new THREE.MeshBasicMaterial( { color: 0xf0ff00 } );
+      var cube = new THREE.Mesh( geometry, material );
+      cube.position.set(x, y, z);
+      return cube;
+    };
+
+    var scene = new THREE.Scene();
+    var camera = new THREE.PerspectiveCamera( 75, window.innerWidth / window.innerHeight, 0.1, 1000 );
+
+    var renderer = new THREE.WebGLRenderer();
+    renderer.setSize( window.innerWidth, window.innerHeight );
+    document.body.appendChild( renderer.domElement );
+
+    var keypoints = [];
+    keypoints.push(keypoint(-1, 0, 0));
+    keypoints.push(keypoint(1, 0, 0));
+    keypoints.push(keypoint(0, 1, 0));
+    keypoints.push(keypoint(-1.5, 2, 0));
+    keypoints.push(keypoint(1.5, 2, 0));
+    keypoints.push(keypoint(0, 3, 0));
+
+    for (var i = 0; i < keypoints.length; i++) {
+      scene.add( keypoints[i] )
+    }
+
+    camera.position.z = 5;
+
+    function render() {
+    	requestAnimationFrame( render );
+      for (var i = 0; i < keypoints.length; i++) {
+        var cube = keypoints[i];
+        cube.rotation.x += 0.05;
+        cube.rotation.y += 0.05;
+      }
+
+    	renderer.render( scene, camera );
+    }
+    render();
+    </script>
+</body>
+</html>
