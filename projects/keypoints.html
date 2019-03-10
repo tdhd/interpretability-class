@@ -7,9 +7,9 @@
     <div id="container"></div>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/102/three.min.js"></script>
     <script>
-    function keypoint(x, y, z) {
-      var geometry = new THREE.BoxGeometry( 0.1, 0.1, 0.1 );
-      var material = new THREE.MeshBasicMaterial( { color: 0xf0ff00 } );
+    function keypoint(x, y, z, color, scale=1) {
+      var geometry = new THREE.BoxGeometry( scale*0.1, scale*0.1, scale*0.1 );
+      var material = new THREE.MeshBasicMaterial( { color: color } );
       var cube = new THREE.Mesh( geometry, material );
       cube.position.set(x, y, z);
       return cube;
@@ -23,12 +23,12 @@
     document.body.appendChild( renderer.domElement );
 
     var keypoints = [];
-    keypoints.push(keypoint(-1, 0, 0));
-    keypoints.push(keypoint(1, 0, 0));
-    keypoints.push(keypoint(0, 1, 0));
-    keypoints.push(keypoint(-1.5, 2, 0));
-    keypoints.push(keypoint(1.5, 2, 0));
-    keypoints.push(keypoint(0, 3, 0));
+    keypoints.push(keypoint(-1, 0, 0, 0xf0ff00, 1.5));
+    keypoints.push(keypoint(1, 0, 0, 0xf0ff00, 1.5));
+    keypoints.push(keypoint(0, 1, 0, 0xff0000, 2));
+    keypoints.push(keypoint(-1.5, 2, 0, 0x00ff00));
+    keypoints.push(keypoint(1.5, 2, 0, 0x00ff00));
+    keypoints.push(keypoint(0, 3, 0, 0xffffff, 2));
 
     for (var i = 0; i < keypoints.length; i++) {
       scene.add( keypoints[i] )
@@ -40,7 +40,7 @@
       requestAnimationFrame( render );
       for (var i = 0; i < keypoints.length; i++) {
         var cube = keypoints[i];
-        cube.rotation.x += 0.05;
+        cube.rotation.x += 0.01;
         cube.rotation.y += 0.05;
       }
 
