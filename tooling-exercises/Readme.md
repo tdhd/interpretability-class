@@ -1,6 +1,12 @@
 # Readme
 
-Install docker
+## Tooling overview
+
+Notebook
+
+## WIT
+
+### Install docker
 
 ```bash
 sudo apt update
@@ -12,3 +18,4 @@ apt-cache policy docker-ce
 sudo apt install docker-ce
 sudo systemctl status docker
 ```
+
