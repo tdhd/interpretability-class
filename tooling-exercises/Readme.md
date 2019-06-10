@@ -27,6 +27,9 @@ https://www.tensorflow.org/tensorboard/r2/what_if_tool
 
 ```bash
 # download pretrained from https://storage.googleapis.com/what-if-tool-resources/uci-census-demo/uci-census-demo.zip
+wget https://storage.googleapis.com/what-if-tool-resources/uci-census-demo/uci-census-demo.zip
+unzip uci-census-demo.zip
+export MODEL_PATH=/path/to/uci_census
 docker run -p 8500:8500 --mount type=bind,source=${MODEL_PATH},target=/models/uci_income -e MODEL_NAME=uci_income -t tensorflow/serving
 ```
 
