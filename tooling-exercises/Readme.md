@@ -24,6 +24,7 @@ sudo usermod -aG docker ${USER}
 ### Start WIT
 
 https://www.tensorflow.org/tensorboard/r2/what_if_tool
+https://pair-code.github.io/what-if-tool/
 
 ```bash
 # download pretrained from https://storage.googleapis.com/what-if-tool-resources/uci-census-demo/uci-census-demo.zip
