@@ -23,6 +23,8 @@ sudo usermod -aG docker ${USER}
 
 ### Start WIT
 
+https://github.com/tensorflow/tensorboard/tree/master/tensorboard/plugins/interactive_inference
+
 https://www.tensorflow.org/tensorboard/r2/what_if_tool
 
 https://pair-code.github.io/what-if-tool/
