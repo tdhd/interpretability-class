@@ -2,7 +2,7 @@
 
 ## Tooling overview
 
-Notebook
+https://github.com/tdhd/interpretability-class/blob/master/tooling-exercises/interpretability%20tooling.ipynb
 
 ## WIT
 
