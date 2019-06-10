@@ -29,7 +29,9 @@ https://www.tensorflow.org/tensorboard/r2/what_if_tool
 # download pretrained from https://storage.googleapis.com/what-if-tool-resources/uci-census-demo/uci-census-demo.zip
 wget https://storage.googleapis.com/what-if-tool-resources/uci-census-demo/uci-census-demo.zip
 unzip uci-census-demo.zip
-export MODEL_PATH=/path/to/uci_census
+export MODEL_PATH=/path/to/uci_census/model
 docker run -p 8500:8500 --mount type=bind,source=${MODEL_PATH},target=/models/uci_income -e MODEL_NAME=uci_income -t tensorflow/serving
+tensorboard --logdir /tmp/wit-logs/
+# open tensorboard in browser and select What-If tool from top-left dropdown
 ```
 
