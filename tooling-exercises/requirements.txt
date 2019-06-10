@@ -2,3 +2,8 @@ scikit-learn
 shap
 lime
 eli5
+keras
+tensorflow
+matplotlib
+pandas
+numpy
