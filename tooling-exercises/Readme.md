@@ -17,5 +17,16 @@ sudo apt update
 apt-cache policy docker-ce
 sudo apt install docker-ce
 sudo systemctl status docker
+
+sudo usermod -aG docker ${USER}
+```
+
+### Start WIT
+
+https://www.tensorflow.org/tensorboard/r2/what_if_tool
+
+```bash
+# download pretrained from https://storage.googleapis.com/what-if-tool-resources/uci-census-demo/uci-census-demo.zip
+docker run -p 8500:8500 --mount type=bind,source=${MODEL_PATH},target=/models/uci_income -e MODEL_NAME=uci_income -t tensorflow/serving
 ```
 
