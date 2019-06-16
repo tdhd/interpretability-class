@@ -10,7 +10,7 @@ To get started, create a new conda environment and install all of the dependenci
 conda create --name interpret python=3.7
 conda activate interpret
 conda install tensorflow matplotlib scikit-learn seaborn numpy pandas scipy statsmodels ipython jupyter
-pip install eli5 lime
+pip install eli5 lime keras-applications
 ```
 
 For some functionality you might need to install graphviz.
