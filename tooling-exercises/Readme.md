@@ -21,28 +21,13 @@ sudo systemctl status docker
 sudo usermod -aG docker ${USER}
 ```
 
-### Start WIT
-
-https://github.com/tensorflow/tensorboard/tree/master/tensorboard/plugins/interactive_inference
-
-https://www.tensorflow.org/tensorboard/r2/what_if_tool
-
-https://pair-code.github.io/what-if-tool/
-
-https://github.com/tdhd/interpretability-class/blob/master/tooling-exercises/what_if_tool_demo_setup.png
-
-```bash
-# download pretrained from https://storage.googleapis.com/what-if-tool-resources/uci-census-demo/uci-census-demo.zip
-wget https://storage.googleapis.com/what-if-tool-resources/uci-census-demo/uci-census-demo.zip
-unzip uci-census-demo.zip
-export MODEL_PATH=/path/to/uci_census/model
-docker run -p 8500:8500 --mount type=bind,source=${MODEL_PATH},target=/models/uci_income -e MODEL_NAME=uci_income -t tensorflow/serving
-tensorboard --logdir /tmp/wit-logs/
-# open tensorboard in browser and select What-If tool from top-left dropdown
-```
-
-
 ## WIT tool from hosted on EC2
+
+[Interactive WIT](https://github.com/tensorflow/tensorboard/tree/master/tensorboard/plugins/interactive_inference)
+
+[TF WIT](https://www.tensorflow.org/tensorboard/r2/what_if_tool)
+
+[Pair Code WIT](https://pair-code.github.io/what-if-tool)
 
 ```bash
 # on EC2 instance
@@ -65,3 +50,7 @@ ssh -i ~/.ssh/dsr -L 8080:localhost:6006 ubuntu@<ec2-public-ip> -N
 ```
 
 where this allows you to connect to `http://localhost:8080` which will be forwarded to the tensorboard UI on EC2 at port `6006`.
+
+Then, choose WIT from Tensorboard and add docker-hosted tensorflow serving like
+
+![setup](https://github.com/tdhd/interpretability-class/blob/master/tooling-exercises/what_if_tool_demo_setup.png)
