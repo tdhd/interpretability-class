@@ -1,11 +1,16 @@
 # interpretability-class
 
-This repo contains exercises regarding interpretability of ML models.
+This repo contains exercises regarding interpretability of ML models. There are some older ones in `exercises`, the newer more tooling focused notebook and setup guide can be found in `tooling-exercises` folder.
 
 ## setup
 
-To get started, create a new conda environment (`conda create --name interpret python=3.6`), activate it (`conda activate interpret`) and install dependencies `conda install tensorflow matplotlib scikit-learn seaborn numpy pandas scipy statsmodels ipython jupyter`. For some functionality you might need to install graphviz.
+To get started, create a new conda environment and install all of the dependencies, run
 
-## exercises
+```bash
+conda create --name interpret python=3.7
+conda activate interpret
+conda install tensorflow matplotlib scikit-learn seaborn numpy pandas scipy statsmodels ipython jupyter
+pip install eli5 lime
+```
 
-The main contents of this repo are the exercises.
+For some functionality you might need to install graphviz.
